@@ -1,0 +1,23 @@
+.nav{
+    display: flex;
+justify-content: space-between;
+height: 40px;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 20px;
+padding-bottom: 20px;
+background-color: #DA7073;
+}
+
+.nav a {
+    font-family: 'Raleway', sans-serif;
+    color:#FFD3DB;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight:bolder;
+}
+
+.nav img {
+    height: 60px;
+    padding-top: -10px;
+}
