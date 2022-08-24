@@ -1,9 +1,10 @@
+import React from 'react'
 import './imagen.png';
 import Botonera from'./Botonera.js';
 import './NavBar.css';
 
 
-function App(){
+function NavBar(){
     return <nav className="nav">
             <img src={require('./imagen.png')} alt="logo" />
             <a href="#/">IMAGEN ROPA</a>
@@ -12,4 +13,4 @@ function App(){
     </nav>
 }
 
-export default App;
+export default NavBar;
