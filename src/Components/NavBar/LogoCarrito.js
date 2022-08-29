@@ -4,7 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function LogoCarrito(){
     return <>
-<div><ShoppingCartIcon ></ShoppingCartIcon></div></>
+<div><ShoppingCartIcon color="secondary"></ShoppingCartIcon></div></>
 }
 
 export default LogoCarrito;

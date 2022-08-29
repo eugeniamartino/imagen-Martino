@@ -10,7 +10,7 @@ function Botonera(){
         <Button variant="contained">Pantalones</Button>
         <Button variant="contained">Vestidos</Button>
     </ButtonGroup>
-    <Button variant="contained"><LogoCarrito variant="contained"></LogoCarrito></Button>
+    <Button variant="contained"><LogoCarrito variant="contained" color="primary"></LogoCarrito></Button>
 </>
 }
 

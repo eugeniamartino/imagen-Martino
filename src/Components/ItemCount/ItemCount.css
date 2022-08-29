@@ -1,0 +1,11 @@
+.contador{
+    font-family: 'Raleway', sans-serif;
+    width: 30px;
+    text-align: center;
+}
+
+.group{
+    height: 40px;
+    align-items: center;
+
+}
