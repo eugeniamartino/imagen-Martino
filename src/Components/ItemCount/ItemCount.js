@@ -5,9 +5,8 @@ import { ButtonGroup } from '@mui/material';
 import './ItemCount.css';
 
 
-function ItemCount(){
+function ItemCount({stock}){
 
-let stock = 8;
 
 const[counter, setCounter] = useState(1);
 
