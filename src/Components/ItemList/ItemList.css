@@ -1,0 +1,41 @@
+.cards{
+    height: 400px;
+    width: 300px;
+    text-align: center;
+    display:inline;
+    background-color: #37474f;
+    border-radius: 10px;
+	box-shadow: 0 1px 5px rgb(0, 0, 0, 0.2);
+}
+
+.cards img{
+    height: 150px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.item-list{
+    margin: 15px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	grid-gap: 5px;
+	overflow: hidden;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.cards p{
+    color:aliceblue;
+    font-family: Roboto;
+}
+
+.cards h4{
+    font-family: raleway;
+    color:antiquewhite
+}
+
+h2{
+    margin-left: 30px;
+    font-family: Raleway;
+}

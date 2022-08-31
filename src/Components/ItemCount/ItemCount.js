@@ -7,7 +7,6 @@ import './ItemCount.css';
 
 function ItemCount({stock}){
 
-
 const[counter, setCounter] = useState(1);
 
 const sumar = () =>{

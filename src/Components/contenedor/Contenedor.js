@@ -1,20 +1,31 @@
 import React from 'react';
-import ItemCount from './../ItemCount/ItemCount.js';
+import { pedirDatos } from "../../helpers/pedirDatos.js"
+import ItemList from "../ItemList/ItemList"
+import { useEffect, useState } from "react"
+
 
 function Contenedor(){
 
+    const [productos, setProductos] = useState([])
+
+    useEffect(() => {
+        pedirDatos()
+            .then( (res) => {
+                setProductos(res)
+            })
+            .catch( (error) => {
+                console.log(error)
+            })
+    }, [])
 
 
-    return <>
+    return (
         <div>
-            <h2>Productos</h2>
-            <ItemCount stock={5}/><br/>
-            <ItemCount stock={9}/><br/>
-            <ItemCount stock={15}/>
-
-       
+            <ItemList productos={productos}/>
         </div>
-    </>
+    )
+
+
 }
 
 export default Contenedor;
