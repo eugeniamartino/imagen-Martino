@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import NavBar from './Components/NavBar/Navbar.js';
 import reportWebVitals from './reportWebVitals';
-import Contenedor from './Components/contenedor/Contenedor.js';
 import { deepPurple, blueGrey } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import App from './App.js'
 
 
 const theme = createTheme({
@@ -28,9 +26,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-
-    <NavBar />
-    <Contenedor />
+      <App/>
     </ThemeProvider>
   </React.StrictMode>
 );
