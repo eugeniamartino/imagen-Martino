@@ -2,13 +2,14 @@ import React from 'react'
 import './imagen.png';
 import Botonera from'./Botonera.js';
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 
 function NavBar(){
     return <nav className="nav">
             <img src={require('./imagen.png')} alt="logo" />
-            <a href="#/">IMAGEN ROPA</a>
-            <Botonera />
+            <Link to={"/"} href="#/">IMAGEN ROPA</Link>
+            <Botonera className="Button"/>
 
     </nav>
 }

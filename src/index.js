@@ -10,7 +10,7 @@ import App from './App.js'
 const theme = createTheme({
   palette: {
     primary: {
-      main: deepPurple[100],
+      main: deepPurple[300],
     },
     secondary: {
       main: blueGrey[800]

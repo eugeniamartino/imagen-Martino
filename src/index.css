@@ -5,12 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-color: rgb(248, 214, 244);
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.progress{
+  font-size: 20px;
+  font-family: Raleway;
+  text-align: center;
+
 }
 
 

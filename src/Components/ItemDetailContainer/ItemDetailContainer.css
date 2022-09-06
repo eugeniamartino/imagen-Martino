@@ -5,6 +5,7 @@
     margin: 15px;
     font-size: 15px;
     text-align: center;
+    font-family: roboto;
 
 }
 
@@ -12,4 +13,9 @@
 .ItemDetailContainer img{
     height: 200px;
     border-radius: 10px;
+}
+
+.ItemDetailContainer h4{
+    font-size: 20px;
+    font-family: Raleway;
 }

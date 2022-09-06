@@ -12,7 +12,7 @@ background-color: #DA7073;
 .nav a {
     font-family: 'Raleway', sans-serif;
     color:#FFD3DB;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration: none;
     font-weight:bolder;
 }
@@ -21,3 +21,4 @@ background-color: #DA7073;
     height: 60px;
     padding-top: -10px;
 }
+

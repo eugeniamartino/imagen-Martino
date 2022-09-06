@@ -10,7 +10,7 @@ const Item = ( {producto} ) => {
             <div className="card-text">
                 <h4>{producto.title}</h4>
                 <p>Precio: {producto.price}</p>
-                <Button variant="contained">Ver más</Button><br/>
+                <Button href={"/producto/" + producto.id}variant="contained">Ver más</Button><br/>
             </div>
         </div>
     )

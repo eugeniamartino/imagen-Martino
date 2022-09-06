@@ -14,7 +14,7 @@ export const stock = [
         price: 3500,
         img: Pantalon1,
         stock: 20,
-        category: "Pantalon"
+        category: "pantalon"
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ export const stock = [
         price: 3700,
         img: Pantalon2,
         stock: 10,
-        category: "Pantalon"
+        category: "pantalon"
     },
     {
         id: 3,
@@ -32,7 +32,7 @@ export const stock = [
         price: 2000,
         img: Remera1,
         stock: 15,
-        category: "Remeras"
+        category: "remera"
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ export const stock = [
         price: 2500,
         img: Remera2,
         stock: 15,
-        category: "Remeras"
+        category: "remera"
     },
     {
         id: 5,
@@ -50,7 +50,7 @@ export const stock = [
         price: 3100,
         img: Vestido1,
         stock: 10,
-        category: "Vestido"
+        category: "vestido"
     },
     {
         id: 6,
@@ -59,6 +59,6 @@ export const stock = [
         price: 3200,
         img: Vestido2,
         stock: 20,
-        category: "Vestido"
+        category: "vestido"
     },
 ]
