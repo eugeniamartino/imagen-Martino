@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button } from '@mui/material';
-import { ButtonGroup } from '@mui/material';
+import { Button, ButtonGroup } from '@mui/material';
 import LogoCarrito from './LogoCarrito.js'
 import {Link } from 'react-router-dom';
 

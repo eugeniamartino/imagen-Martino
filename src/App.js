@@ -4,10 +4,12 @@ import Contenedor from './Components/contenedor/Contenedor'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Carrito from './Components/Carrito/Carrito'
+import { CartProvider } from './CartContext/CartContext'
 
 const App =() => {
  return (
     <div>
+        <CartProvider>
         <BrowserRouter>
             <NavBar />
             <Routes>
@@ -16,10 +18,8 @@ const App =() => {
                 <Route path="/producto/:itemId" element={<ItemDetailContainer/>}/>
                 <Route path="/carrito" element={<Carrito/>}/>
             </Routes>
-            {//<ItemDetailConteiner/>
-}
-
         </BrowserRouter>
+        </CartProvider>
     </div>
  )
 }
