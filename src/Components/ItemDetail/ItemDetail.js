@@ -22,6 +22,7 @@ const ItemDetail = ({producto}) => {
         addToCart(itemCarrito)
     }
 
+
     return ( 
     <div>
     <img src={producto.img} alt="foto"/>

@@ -1,5 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+import * as React from 'react';
+
+
+
 export const CartContext = createContext()
 
 const init = JSON.parse(localStorage.getItem('carrito')) || []
@@ -31,7 +35,8 @@ export const CartProvider = ({children}) => {
 
     const emptyCart = () => {
 
-                setCart([])
+        setCart([])
+
     }
 
     useEffect(() => {

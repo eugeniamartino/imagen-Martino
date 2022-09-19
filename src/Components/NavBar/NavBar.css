@@ -23,3 +23,9 @@ margin: 0;
     padding-top: -10px;
 }
 
+
+.btn-carrito{
+    justify-content: space-between;
+    font-size: 20px;
+    align-items: center;
+}
