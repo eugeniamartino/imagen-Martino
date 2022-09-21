@@ -4,7 +4,8 @@ import ItemList from "../ItemList/ItemList"
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
 import { CircularProgress } from '@mui/material';
-
+import {collection, getDocs, query, where} from "firebase/firestore"
+import { db} from '../../Firebase/Config.js';
 
 function Contenedor(){
 
@@ -16,20 +17,20 @@ function Contenedor(){
     useEffect(() => {
         setLoading(true)
 
-        pedirDatos()
-            .then( (res) => {
-                if(!categoryId){
-                    setProductos(res)
-                } else{
-                    setProductos(res.filter((item) => item.category === categoryId))
-                }
-            })
-            .catch( (error) => {
-                console.log(error)
-            })
-            .finally(() => {
-                setLoading(false)
+        const productosRef = collection(db, 'productos')
+        const q = categoryId 
+            ? query(productosRef, where("category", "==", categoryId))
+            : productosRef
 
+        getDocs(q)
+            .then((snapshot) => {
+                const productosDB =snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+                console.log(productosDB)
+
+                setProductos(productosDB)
+            })
+            .finally(()=> {
+                setLoading(false)
             })
     }, [categoryId]) 
 

@@ -5,7 +5,8 @@ import ItemDetail from '../ItemDetail/ItemDetail.js'
 import './ItemDetailContainer.css'
 import { useParams } from 'react-router-dom'
 import { CircularProgress } from '@mui/material';
-
+import {doc, getDoc} from 'firebase/firestore'
+import { db } from '../../Firebase/Config'
 
 const ItemDetailContainer = ( ) => {
 
@@ -19,15 +20,14 @@ const ItemDetailContainer = ( ) => {
     useEffect(() => {
         setLoading(true)
 
-        pedirDatos()
-            .then((res) => {
-                if(!itemId){
-                    console.log("ERROR")
-                }else{setItem( res.find((prod) => prod.id === Number(itemId)) )}
+        const docRef = doc(db, 'productos', itemId)
 
+        getDoc(docRef)
+            .then((doc) => {
+                
+                setItem({id: doc.id, ...doc.data()})
             })
-            .catch(err => console.log(err))
-            .finally(() => {
+            .finally(()=>{
                 setLoading(false)
             })
 

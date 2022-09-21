@@ -13,7 +13,7 @@ const ItemDetail = ({producto}) => {
 
     const sumarCarrito = () => {
         const itemCarrito ={
-            img: producto.img,
+            img: producto.img2,
             id: producto.id,
             precio: producto.price,
             nombre: producto.title,
