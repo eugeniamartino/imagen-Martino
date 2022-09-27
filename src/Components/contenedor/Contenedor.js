@@ -1,5 +1,4 @@
 import React from 'react';
-import { pedirDatos } from "../../helpers/pedirDatos.js"
 import ItemList from "../ItemList/ItemList"
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
@@ -25,7 +24,6 @@ function Contenedor(){
         getDocs(q)
             .then((snapshot) => {
                 const productosDB =snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-                console.log(productosDB)
 
                 setProductos(productosDB)
             })

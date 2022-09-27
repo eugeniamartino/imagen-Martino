@@ -12,10 +12,14 @@ margin: 0;
 
 .nav a {
     font-family: 'Raleway', sans-serif;
-    color:#FFD3DB;
     font-size: 25px;
     text-decoration: none;
     font-weight:bolder;
+}
+
+.titulo{
+    color:#FFD3DB;
+
 }
 
 .nav img {

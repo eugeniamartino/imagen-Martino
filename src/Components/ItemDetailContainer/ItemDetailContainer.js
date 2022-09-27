@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../../helpers/pedirDatos"
 import ItemDetail from '../ItemDetail/ItemDetail.js'
 import './ItemDetailContainer.css'
 import { useParams } from 'react-router-dom'

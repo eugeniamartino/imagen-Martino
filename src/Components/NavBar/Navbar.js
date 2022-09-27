@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 function NavBar(){
     return <nav className="nav">
             <img src={require('./imagen.png')} alt="logo" />
-            <Link to={"/"} href="#/">IMAGEN ROPA</Link>
+            <Link to={"/"} href="#/" className='titulo'>IMAGEN ROPA</Link>
             <Botonera className="Button"/>
 
     </nav>

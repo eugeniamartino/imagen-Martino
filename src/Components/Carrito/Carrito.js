@@ -1,8 +1,7 @@
 import { useCartContext } from "../../CartContext/CartContext"
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button } from '@mui/material';
+import { Button, ButtonGroup } from '@mui/material';
 import { Link } from "react-router-dom";
-
 
 const Carrito = () => {
 
@@ -40,8 +39,10 @@ const Carrito = () => {
             </div>
             <div className="boton-Vaciar">
             <h4>Total: ${cartTotal()}</h4>
-            <Button onClick={emptyCart} variant="contained">Vaciar carrito</Button>
-            
+            <ButtonGroup variant="outlined" color="secondary">
+                <Button onClick={emptyCart} >Vaciar carrito</Button>
+                <Button component={Link} to="/checkout" >Terminar mi compra</Button>
+            </ButtonGroup>
             </div>
         </div>
     )

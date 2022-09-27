@@ -17,7 +17,7 @@ const restar = () =>{
 
         <ButtonGroup variant="contained" className="group">
         <Button variant="contained" onClick={restar} disabled={cantidad === 1}>-</Button>
-        <p className="contador" >{cantidad}</p>
+        <p className="contador">{cantidad}</p>
         <Button variant="contained" onClick={sumar} disabled={cantidad === stock}>+</Button>
         <Button  variant="contained" onClick={sumarCarrito}>Sumar al Carrito</Button>
         </ButtonGroup>
