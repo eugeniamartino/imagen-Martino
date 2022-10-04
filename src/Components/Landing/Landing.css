@@ -1,0 +1,27 @@
+.Landing{
+    overflow: hidden;
+    text-align: center;
+    position:fixed;
+    top: 80px;
+}
+
+.Bienvenida{
+    position: absolute;
+    top: 30px;
+
+}
+
+
+
+.btn-ingresar{
+    height: 60px;
+    width: 200px;
+    font-size: 25px;
+    font-family: 'Raleway';
+    background: rgba(0,0,0,0.9);
+}
+
+h1{
+    font-size: 90px;
+    color: rgb(8, 8, 8)
+}

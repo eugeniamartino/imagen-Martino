@@ -12,9 +12,9 @@ function Botonera(){
 
     return <>
     <ButtonGroup variant="contained" >
-        <Button component={Link} to={'/productos/remera'} >Remeras</Button>
-        <Button component={Link} to={'/productos/pantalon'} >Pantalones</Button>
-        <Button component={Link} to={'/productos/vestido'} >Vestidos</Button>
+        <Button component={Link} to={'/productos'} >Productos</Button>
+        <Button component={Link} to={'/nosotros'} >Nosotros</Button>
+        <Button component={Link} to={'/contacto'} >Contacto</Button>
     </ButtonGroup>
     <Button component={Link} to={'/carrito'} variant="contained"  className={`carrito-null ${cart.length > 0 ? 'btn-carrito' :''}`}><LogoCarrito variant="outlined" color="danger"></LogoCarrito></Button>
 </>

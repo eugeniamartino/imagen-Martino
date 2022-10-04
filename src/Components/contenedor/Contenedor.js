@@ -5,8 +5,10 @@ import { useParams } from 'react-router-dom'
 import { CircularProgress } from '@mui/material';
 import {collection, getDocs, query, where} from "firebase/firestore"
 import { db} from '../../Firebase/Config.js';
+import BotoneraProductos from '../BotoneraProductos/BotoneraProductos';
 
 function Contenedor(){
+
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
@@ -35,6 +37,7 @@ function Contenedor(){
 
     return (
         <div>
+            <BotoneraProductos/>
             {
                 loading 
                 ? <p className="progress">Loading..<br/><CircularProgress color="secondary" /></p>

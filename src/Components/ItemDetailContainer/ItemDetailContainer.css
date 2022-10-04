@@ -1,12 +1,8 @@
 .ItemDetailContainer{
-    display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
     margin: 15px;
-    font-size: 15px;
     text-align: center;
     font-family: roboto;
-
 }
 
 

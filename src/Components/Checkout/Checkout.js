@@ -12,9 +12,9 @@ import LoadingButton from '@mui/lab/LoadingButton';
 
 const Checkout = () =>{
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
-    const { cart, cartTotal, terminarCompra} = useCartContext()
+    const { cart, cartTotal, emptyCart} = useCartContext()
 
     const [orderId, setOrderId] = useState(null)
 
@@ -26,7 +26,7 @@ const Checkout = () =>{
 
 
     const handleSubmit = async (e) => {
-        setLoading(false);
+        setLoading(true);
         e.preventDefault()
 
         const orden = {
@@ -55,7 +55,7 @@ const Checkout = () =>{
         const productos = await getDocs(q)
 
         const outOfStock = []
-            
+
         productos.docs.forEach((doc) => {
             const itemInCart = cart.find(item => item.id === doc.id)
 
@@ -65,21 +65,31 @@ const Checkout = () =>{
                 })
             } else {
                 outOfStock.push(itemInCart)
+                console.log(outOfStock)
             }
         })
-
+/*
+        if(outOfStock.length > 0){
+            return(
+                <>
+                    <h2>Ha ocurrido un problema</h2>
+                    <p>Uno de los productos en su carrito no tiene stock suficiente</p>
+                </>
+            )
+        }
+*/
         if (outOfStock.length === 0) {
             batch.commit()
                 .then(() => {
                     addDoc(ordenesRef, orden)
                         .then((doc) => {
                             setOrderId(doc.id)
-                            terminarCompra()
+                            emptyCart()
                         })
                 })
-        } else {
-            
-            alert("Hay items sin stock")
+        } else{
+            console.log("Error en la carga de items")
+
         }
 
     }
@@ -97,6 +107,8 @@ const Checkout = () =>{
         return <Navigate to="/"/>
     }
 
+
+
     return(
         <>
             <h2>Terminar mi compra</h2>
@@ -109,51 +121,42 @@ const Checkout = () =>{
                 autoComplete="off"
             >
 
-           
                 <TextField
                     required
-                    id="outlined-required"
                     label="Nombre"
                     name="nombre"
                     onChange={handleInputChange}
                     value={values.nombre}
                     type={'text'} 
-                    className="my-3 form-control" 
+
                 /><br/>
                 <TextField
                     required
-                    id="outlined-required"
                     label="Email"
                     name="email"
                     onChange={handleInputChange}
                     value={values.email}
                     type={'email'} 
-                    className="my-3 form-control" 
+
                 /><br/>
                 <TextField
                     required="true"
-                    id="outlined-required"
                     label="Dirección"
                     name="direccion"
                     onChange={handleInputChange}
                     value={values.direccion}
                     type={'text'} 
-                    className="my-3 form-control" 
+
                 /><br/>
 
-                {
-                    loading
-                ?<LoadingButton 
-                    type="submit" 
-                    variant="contained"     
-                    loading={false}
-                    onClick={handleSubmit}
-
-                    >Enviar</LoadingButton>
-                :<LoadingButton     
-                    variant="contained" 
-                    loading={true}>Enviar</LoadingButton>
-                }
+                {   loading
+                ?<LoadingButton  
+                    loading={true}/>
+                :<LoadingButton 
+                type="submit" 
+                variant="contained"     
+                loading={false}
+                onClick={handleSubmit}>Enviar</LoadingButton>}
             </Box>
             </div>
         </>
