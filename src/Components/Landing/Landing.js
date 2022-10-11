@@ -22,9 +22,11 @@ const Landing = () =>{
                     variant="outlined" 
                     color="primary" 
                     disableElevation 
-                    size="large" 
                     className="btn-ingresar"
-                    component={Link} to={'/productos'}>Comprar</Button>
+                    component={Link} to={'/productos'}
+                    style={{ fontSize: "25px",
+                        fontFamily: 'Raleway',
+                        background: "rgba(0, 0, 0, 0.5)"}}>Comprar</Button>
                 </div>
         </div>
     )

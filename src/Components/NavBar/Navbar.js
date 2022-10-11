@@ -1,5 +1,5 @@
 import React from 'react'
-import './imagen.png';
+import './1.png';
 import Botonera from'./Botonera.js';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
@@ -7,8 +7,11 @@ import { Link } from 'react-router-dom';
 
 function NavBar(){
     return <nav className="nav">
-            <img src={require('./imagen.png')} alt="logo" />
-            <Link to={"/"} href="#/" className='titulo'>IMAGEN ROPA</Link>
+            <div className='logo'>
+                <Link to={"/"} href="#/">
+                    <img src={require('./1.png')} alt="logo"/><p className='titulo'>mogen Ropa</p>
+                </Link>
+            </div>
             <Botonera className="Button"/>
 
     </nav>

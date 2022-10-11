@@ -10,8 +10,8 @@ const Item = ( {producto} ) => {
             <img src={producto.img} alt="foto"/>
             <div className="card-text">
                 <h4>{producto.title}</h4>
-                <p>Precio: {producto.price}</p>
-                <Button component={Link} to={"/producto/" + producto.id}variant="contained">Ver más</Button><br/>
+                <p>Precio: ${producto.price}</p>
+                <Button component={Link} to={"/producto/" + producto.id} variant="contained" style={{position:"inherit"}}>Ver más</Button><br/>
             </div>
         </div>
     )

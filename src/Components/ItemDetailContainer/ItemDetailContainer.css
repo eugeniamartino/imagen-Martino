@@ -2,12 +2,13 @@
 	justify-content: center;
     margin: 15px;
     text-align: center;
-    font-family: roboto;
+    font-family: Raleway;
+    font-size: 14px;
 }
 
 
 .ItemDetailContainer img{
-    height: 200px;
+    height: 300px;
     border-radius: 10px;
 }
 
@@ -15,3 +16,4 @@
     font-size: 20px;
     font-family: Raleway;
 }
+

@@ -2,13 +2,14 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import React from 'react';
-import Button from '@mui/material/Button';
+import {IconButton, Button} from '@mui/material';
 import { useCartContext } from "../../CartContext/CartContext"
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
-const Borrar = () => {
+const BorrarItem = (prod) => {
 
-    const { emptyCart} = useCartContext()
+    const { removeItem } = useCartContext()
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -19,15 +20,15 @@ const Borrar = () => {
         setOpen(false);
     };
 
-    const handleBorrar = () => {
-        emptyCart();
+    const handleBorrarItem = (prod) => {
+        removeItem(prod.prod);
         setOpen(false);
     };
 
 
     return(
         <>
-            <Button onClick={handleClickOpen}>Vaciar carrito</Button>
+            <IconButton onClick={handleClickOpen} variant="outlined" size="large"><DeleteIcon/></IconButton>
             <Dialog
             open={open}
             onClose={handleClose}
@@ -35,11 +36,11 @@ const Borrar = () => {
             aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"¿Quiere borrar todo el contenido del carrito?"}
+                    {"¿Quiere borrar este producto del carrito?"}
                 </DialogTitle>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancelar</Button>
-                    <Button onClick={handleBorrar} variant="contained">Borrar</Button>
+                    <Button onClick={() => handleBorrarItem(prod)} variant="contained">Borrar</Button>
                 </DialogActions>
             </Dialog>
         </>
@@ -47,4 +48,4 @@ const Borrar = () => {
 }
 
 
-export default Borrar;
+export default BorrarItem;

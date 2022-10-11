@@ -25,10 +25,10 @@ const ItemDetail = ({producto}) => {
 
     return ( 
     <div>
-    <img src={producto.img} alt="foto"/>
+    <img src={producto.img2} alt="foto"/>
     <div>
         <h4>{producto.title}</h4>
-        <p>Precio: {producto.price}</p>
+        <p>Precio: ${producto.price}</p>
         <p>{producto.description}</p>
         <p>Stock: {producto.stock}</p>
 
@@ -36,7 +36,7 @@ const ItemDetail = ({producto}) => {
                 isInCart(producto.id)
                 ?   <ButtonGroup variant="contained">
                     <Button component={Link} to={"/carrito"} >Terminar mi compra</Button>
-                    <Button component={Link} to={"/"}>Seguir navegando</Button></ButtonGroup>
+                    <Button component={Link} to={"/productos"}>Seguir navegando</Button></ButtonGroup>
                 :   <ItemCount 
                 stock={producto.stock}
                 cantidad={cantidad}

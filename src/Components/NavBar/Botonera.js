@@ -11,12 +11,12 @@ function Botonera(){
 
 
     return <>
-    <ButtonGroup variant="contained" >
+    <ButtonGroup variant="outlined" size="large">
+        <Button component={Link} to={'/'} >Inicio</Button>
         <Button component={Link} to={'/productos'} >Productos</Button>
-        <Button component={Link} to={'/nosotros'} >Nosotros</Button>
         <Button component={Link} to={'/contacto'} >Contacto</Button>
     </ButtonGroup>
-    <Button component={Link} to={'/carrito'} variant="contained"  className={`carrito-null ${cart.length > 0 ? 'btn-carrito' :''}`}><LogoCarrito variant="outlined" color="danger"></LogoCarrito></Button>
+    <Button component={Link} to={'/carrito'} variant="outlined"  className={`carrito-null ${cart.length > 0 ? 'btn-carrito' :''}`}><LogoCarrito variant="outlined" color="danger"></LogoCarrito></Button>
 </>
 }
 

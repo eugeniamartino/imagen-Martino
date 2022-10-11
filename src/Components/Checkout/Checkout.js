@@ -7,8 +7,9 @@ import { db } from "../../Firebase/Config"
 import { useForm } from "../../hooks/useForm"
 import TextField from '@mui/material/TextField';
 import './Checkout.css';
-import Box from '@mui/material/Box';
+import {Box, Alert, Button} from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import { Link } from "react-router-dom";
 
 const Checkout = () =>{
 
@@ -24,6 +25,7 @@ const Checkout = () =>{
         direccion: '',
     })
 
+    const[error, setError]= useState("")
 
     const handleSubmit = async (e) => {
         setLoading(true);
@@ -35,16 +37,18 @@ const Checkout = () =>{
             total: cartTotal()
         }
         
-
+        const errorDatos = []
+        
         if (values.nombre.length < 2) {
-            alert("Nombre incorrecto")
-            return
+            errorDatos.push("errorNombre")    
+            setError("errorDatos")
+        }
+    
+        if (values.email.length < 2) { 
+            errorDatos.push("errorEmail")    
+            setError("errorDatos")
         }
 
-        if (values.email.length < 2) { 
-            alert("Email incorrecto")
-            return 
-        }
 
         const batch = writeBatch(db)
         const ordenesRef = collection(db, 'ordenes')
@@ -56,6 +60,7 @@ const Checkout = () =>{
 
         const outOfStock = []
 
+
         productos.docs.forEach((doc) => {
             const itemInCart = cart.find(item => item.id === doc.id)
 
@@ -65,20 +70,11 @@ const Checkout = () =>{
                 })
             } else {
                 outOfStock.push(itemInCart)
-                console.log(outOfStock)
             }
         })
-/*
-        if(outOfStock.length > 0){
-            return(
-                <>
-                    <h2>Ha ocurrido un problema</h2>
-                    <p>Uno de los productos en su carrito no tiene stock suficiente</p>
-                </>
-            )
-        }
-*/
-        if (outOfStock.length === 0) {
+
+        if (outOfStock.length === 0 && errorDatos.length === 0) {
+
             batch.commit()
                 .then(() => {
                     addDoc(ordenesRef, orden)
@@ -87,9 +83,10 @@ const Checkout = () =>{
                             emptyCart()
                         })
                 })
+        } else if(outOfStock.length !== 0 && errorDatos.length === 0){
+            setError("noStock")
         } else{
-            console.log("Error en la carga de items")
-
+            console.log("carga de datos mal")
         }
 
     }
@@ -98,7 +95,8 @@ const Checkout = () =>{
         return (
             <>
                 <h2>Gracias por comprar aquí!</h2>
-                <p className="checkout">Tu número de orden es: <strong>{orderId}</strong></p>
+                <Alert severity="success"  variant="outlined" sx={{ width: '80%' }} style={{margin:"15px"}}>Tu número de orden es: <strong>{orderId}</strong></Alert>
+                <Button variant="contained" style={{margin:"25px"}} component={Link} to="/">Volver al inicio</Button>
             </>
         )
     }
@@ -106,49 +104,62 @@ const Checkout = () =>{
     if (cart.length === 0) {
         return <Navigate to="/"/>
     }
+    
+    if(error === "noStock"){
+        return(
+            <>
+            <Alert severity="error"  variant="outlined" sx={{ width: '80%' }} style={{margin:"15px"}}>No hay Stock</Alert>
+            <Button variant="contained" style={{margin:"25px"}} component={Link} to="/carrito">Volver al carrito</Button>
+            </>
+        )
+    }
 
-
+    if(error === "errorDatos"){
+        return(
+            <>
+            <Alert severity="warning" variant="outlined" sx={{ width: '80%' }} style={{margin:"15px"}}>Datos no cargados</Alert>
+            <Button variant="contained" style={{margin:"25px"}} component={Link} to="/carrito">Volver al carrito</Button>
+            </>
+        )
+    }
 
     return(
         <>
             <h2>Terminar mi compra</h2>
             <div className="checkout">
-            
             <Box
                 component="form"
                 onSubmit={handleSubmit}
-                sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}
+                sx={{'& .MuiTextField-root': { m: 1, width: '25ch' }}}
                 autoComplete="off"
             >
-
                 <TextField
-                    required
+                    required="true"
                     label="Nombre"
                     name="nombre"
                     onChange={handleInputChange}
+                    error={values.nombre.length < 3}
                     value={values.nombre}
                     type={'text'} 
-
                 /><br/>
                 <TextField
-                    required
+                    required="true"
                     label="Email"
                     name="email"
                     onChange={handleInputChange}
+                    error={values.email.length < 3}
                     value={values.email}
                     type={'email'} 
-
                 /><br/>
                 <TextField
                     required="true"
                     label="Dirección"
                     name="direccion"
                     onChange={handleInputChange}
+                    error={values.direccion.length < 3}
                     value={values.direccion}
                     type={'text'} 
-
                 /><br/>
-
                 {   loading
                 ?<LoadingButton  
                     loading={true}/>
@@ -156,7 +167,8 @@ const Checkout = () =>{
                 type="submit" 
                 variant="contained"     
                 loading={false}
-                onClick={handleSubmit}>Enviar</LoadingButton>}
+                onClick={handleSubmit}
+                >Enviar</LoadingButton>}
             </Box>
             </div>
         </>

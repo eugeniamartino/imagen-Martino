@@ -8,7 +8,6 @@
 .Bienvenida{
     position: absolute;
     top: 30px;
-
 }
 
 
@@ -16,12 +15,25 @@
 .btn-ingresar{
     height: 60px;
     width: 200px;
-    font-size: 25px;
-    font-family: 'Raleway';
-    background: rgba(0,0,0,0.9);
 }
 
 h1{
     font-size: 90px;
-    color: rgb(8, 8, 8)
+    color: rgb(8, 8, 8);
+    font-family: 'Raleway';
+
+}
+
+@media (max-width:900px){
+
+    .Bienvenida{
+        top: -30px;
+    }
+
+    h1{
+        font-size: 60px;
+        color: rgb(8, 8, 8);
+        font-family: 'Raleway';
+    
+    }
 }

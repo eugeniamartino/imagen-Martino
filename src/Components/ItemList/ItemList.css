@@ -3,9 +3,9 @@
     width: 300px;
     text-align: center;
     display:inline;
-    background-color: #37474f;
-    border-radius: 10px;
-	box-shadow: 0 1px 5px rgb(0, 0, 0, 0.2);
+    background-color: #4caf4f4f;
+    border-radius: 5px;
+	box-shadow: 0 1px 5px rgb(0, 0, 0, 0.4);
 }
 
 .carrito-vacio{
@@ -20,14 +20,14 @@
     height: 200px;
     width: 500px;
     display: inline-flex;
-    background-color: #b0bec5;
+    background-color: #4caf4f4f;
     border-radius: 10px;
-	box-shadow: 0 1px 5px rgb(0, 0, 0, 0.2);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     display: -webkit-box;
 }
 
 .card-img{
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 25px;
     height: 150px;
 }
@@ -45,17 +45,16 @@
 .cards img{
     height: 150px;
     width: 300px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .item-list{
-    margin: 15px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	grid-gap: 5px;
+	grid-gap: 8px;
 	overflow: hidden;
-    margin: 5px;
+    margin: 8px;
     overflow: hidden;
 }
 
@@ -68,13 +67,16 @@
 }
 
 .cards p{
-    color:aliceblue;
-    font-family: Roboto;
+    color:#560027bb;
+    font-family: Raleway;
+    font-size: medium;
+    margin-top: -8px;
 }
 
 .cards h4{
     font-family: raleway;
-    color:antiquewhite
+    color:#560027;
+    font-size: large;
 }
 
 h2{
@@ -94,3 +96,4 @@ h2{
     opacity: 1;
     
 }
+

@@ -6,23 +6,35 @@ padding-left: 50px;
 padding-right: 50px;
 padding-top: 20px;
 padding-bottom: 20px;
-background-color: #DA7073;
+background-color:#4caf4f65;
 margin: 0;
 position: fixed;
 top: 0px;
 width:-webkit-fill-available;
+backdrop-filter: blur(5px);
+
+}
+
+.titulo{
+    font-size: 30px;
+    color: #880e4f;
+    margin-top: -50px;
+    margin-left: 61px;
+    
+}
+
+.logo{
+    margin-top: -10px;
+}
+
+.logo img{
+    border-radius: 2px;
 }
 
 .nav a {
     font-family: 'Raleway', sans-serif;
-    font-size: 25px;
     text-decoration: none;
     font-weight:bolder;
-}
-
-.titulo{
-    color:#FFD3DB;
-
 }
 
 .nav img {
@@ -35,4 +47,13 @@ width:-webkit-fill-available;
     justify-content: space-between;
     font-size: 20px;
     align-items: center;
+}
+
+
+@media (max-width:768px){
+    .titulo{
+        font-size: 22px;
+        
+    }
+
 }
